@@ -54,6 +54,16 @@ namespace ContosoUniversity.DAL
             };
             enrollments.ForEach(s => context.Enrollments.Add(s));
             context.SaveChanges();
+
+            var horarios= new List<Horario>
+            {                
+            new Horario{ CourseID=1050, DiaSemana=2, HoraDesde=new TimeSpan(0,10,00,00), HoraHasta=new TimeSpan(0,12,00,00) },
+            new Horario{ CourseID=1050, DiaSemana=4, HoraDesde=new TimeSpan(0,10,00,00), HoraHasta=new TimeSpan(0,12,00,00) }            
+            };
+
+            horarios.ForEach(s => context.Horarios.Add(s));
+            context.SaveChanges();
+
             var feriados = new List<Feriado>
             {
             new Feriado{Fecha =DateTime.Parse("2016-03-24"), Descripcion="Dia de la Memoria"},

@@ -1,0 +1,78 @@
+﻿@model ContosoUniversity.Models.VMHorario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>VMHorario</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Horario.CourseID, "CourseID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseID", String.Empty)
+                @Html.ValidationMessageFor(model => model.Horario.CourseID)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Horario.DiaSemana, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Horario.DiaSemana)
+                @Html.ValidationMessageFor(model => model.Horario.DiaSemana)
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dia, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Dia,
+      new SelectList(Enum.GetValues(typeof(ContosoUniversity.Models.VMHorario.SemanaDiasNombres))),
+                    "Select Dia de la Semana")
+                @Html.ValidationMessageFor(model => model.Dia)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HDesde, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HDesde)
+                @Html.ValidationMessageFor(model => model.HDesde)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HHasta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HHasta)
+                @Html.ValidationMessageFor(model => model.HHasta)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

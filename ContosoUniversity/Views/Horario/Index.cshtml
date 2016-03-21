@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ContosoUniversity.Models.Horario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaSemana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraDesde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraHasta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaSemana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraDesde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraHasta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

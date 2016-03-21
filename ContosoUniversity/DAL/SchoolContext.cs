@@ -14,10 +14,14 @@ namespace ContosoUniversity.DAL
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Feriado> Feriados{ get; set; }
+        public DbSet<Horario> Horarios{ get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+        
+
+        
     }
 }
