@@ -9,7 +9,6 @@ namespace ContosoUniversity.Models
     {
         public int ID {get;set;}
         public DateTime Fecha { get; set; }
-        public string Descripcion { get; set; }
-        public bool x { get; set; }
+        public string Descripcion { get; set; }       
     }
 }
