@@ -71,8 +71,8 @@ namespace ContosoUniversity.DAL
             };
 
             feriados.ForEach(s => context.Feriados.Add(s));
-            context.SaveChanges();
-
+            context.SaveChanges();            
         }
+        
     }
 }
